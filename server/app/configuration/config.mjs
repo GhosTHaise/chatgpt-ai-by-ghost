@@ -7,9 +7,8 @@ export const Initialization = (app) => {
     app.use(cors());
     app.use(express.json());
 }
-
 const configurattion = new Configuration({
-    apiKey : process.env.OPENAI_API_KEY
+    apiKey : process.env.OPENAI_API_KEYS
 })
 
 export const openai = new OpenAIApi(configurattion);

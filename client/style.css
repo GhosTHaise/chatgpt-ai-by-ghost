@@ -91,7 +91,7 @@ body {
 
   color: #dcdcdc;
   font-size: 20px;
-
+  padding-top: 5px;
   max-width: 100%;
   overflow-x: scroll;
 
@@ -101,7 +101,7 @@ body {
    * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
    * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
   */
-  white-space: pre-wrap; 
+  /* white-space: pre-wrap;  */
 
   -ms-overflow-style: none;
   scrollbar-width: none;
