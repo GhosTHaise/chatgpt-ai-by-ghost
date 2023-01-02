@@ -1,9 +1,11 @@
 import express from "express"
-import { Initialization , openai } from "./configuration/config.js";
-import { InitRoutes } from "./route/web.js";
+import { Initialization} from "./configuration/config.mjs";
+import { InitRoutes } from "./route/web.mjs";
+import * as dotenv from "dotenv"
 
+dotenv.config();
 const app = express();
-const PORT = 4000 || process.env.PORT_ENV;
+const PORT =  process.env.PORT_ENV || 4000;
 
 //Init my app
 Initialization(app);
@@ -11,5 +13,5 @@ Initialization(app);
 InitRoutes(app);
 app.listen(
     PORT,
-    ()=> console.log(`Your app start on : http://localhost:${PORT}`)
+    ()=> console.log(`Server start on : http://localhost:${PORT}`)
 );

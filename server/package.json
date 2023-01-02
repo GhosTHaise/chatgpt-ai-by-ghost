@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start"  : "nodemon app/server.js"
+    "server"  : "nodemon app/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "GhosTHaise",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
