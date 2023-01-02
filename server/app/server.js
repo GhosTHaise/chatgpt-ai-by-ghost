@@ -1,6 +1,7 @@
 import express from "express"
-import { Initialization , openai } from "./configuration";
-import { InitRoutes } from "./route";
+import { Initialization , openai } from "./configuration/config.js";
+import { InitRoutes } from "./route/web.js";
+
 const app = express();
 const PORT = 4000 || process.env.PORT_ENV;
 
