@@ -70,10 +70,36 @@ function chatStripe(isAi,value,uniqueId){
 
         //apply ...
         const messageDiv = document.getElementById(`${uniqueId}`);
-        console.log(uniqueId)
-        console.log(messageDiv)
+        //console.log(uniqueId)
+        //console.log(messageDiv)
         loader(messageDiv);
 
+        //fecth data from server -> bot's response
+        const response = await fetch("http://localhost:4023",
+        {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                prompt : data.get("prompt")
+            })
+        });
+
+        clearInterval(loadInterval);
+        messageDiv.innerHTML = "";
+
+        if(response.ok){
+            const data = await response.json();
+            const parsedData = data.bot.trim();
+
+            typeText(messageDiv,parsedData);
+        }else{
+            const err = await response.text();
+            messageDiv.innerHTML = "Something went wrong";
+
+            alert(err);
+        }
  }
 
  //call callback on submit
