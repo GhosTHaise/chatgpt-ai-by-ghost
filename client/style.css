@@ -15,19 +15,27 @@ body {
   width: 100vw;
   height: 100vh;
   background: #343541;
-
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-
+.ghost{
+  opacity: 0.3;
+  z-index: 1;
+  position: absolute;
+  top : 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  object-fit: cover;
+}
 #chat_container {
   flex: 1;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -101,7 +109,7 @@ body {
    * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
    * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
   */
-  /* white-space: pre-wrap;  */
+  white-space: pre-wrap; 
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -118,7 +126,7 @@ form {
   margin: 0 auto;
   padding: 10px;
   background: #40414F;
-
+  z-index: 10;
   display: flex;
   flex-direction: row;
   gap: 10px;

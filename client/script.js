@@ -14,7 +14,7 @@ function loader(element){
         if(element.textContent === "...."){
             element.textContent = ""
         }
-    },300)
+    },300);
 }
 
 function typeText(element,text) {
@@ -26,7 +26,7 @@ function typeText(element,text) {
         }else{
             clearInterval(interval);
         }
-    },200)                                                                                                                           
+    },20);                                                                                                                           
 }
 
 function generateUniqueId(){
@@ -47,7 +47,7 @@ function chatStripe(isAi,value,uniqueId){
                         alt=${isAi ? "bot" : "user"}
                         />
                 </div>
-                <div class="message" id=${uniqueId} >
+                <div ${!isAi && 'style="white-space: normal"'} class="message" id=${uniqueId} >
                         ${value}
                 </div>
             </div>
@@ -66,7 +66,7 @@ function chatStripe(isAi,value,uniqueId){
         const uniqueId = generateUniqueId();
         chatContainer.innerHTML += chatStripe(true,"",uniqueId);
         
-        chatContainer.scrollTo = chatContainer.scrollHeight;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
 
         //apply ...
         const messageDiv = document.getElementById(`${uniqueId}`);
