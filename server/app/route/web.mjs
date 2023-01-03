@@ -12,8 +12,9 @@ Router.post("/",async (req,res)=>{
     try{
         const prompt = req.body.prompt;
         console.log(prompt)
-        const response = await openai.createCompletion({
-            model: "text-davinci-003",
+        const response = await openai.createCompletion(
+        {
+            model : "text-davinci-003",
             prompt: `${prompt}`,
             temperature: 0,
             max_tokens: 3000,

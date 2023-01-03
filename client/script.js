@@ -77,7 +77,7 @@ function chatStripe(isAi,value,uniqueId){
         //fecth data from server -> bot's response
         const response = await fetch("http://localhost:4023",
         {
-            method : "POST",
+            method : "post",
             headers : {
                 "Content-Type" : "application/json"
             },
