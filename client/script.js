@@ -75,7 +75,7 @@ function chatStripe(isAi,value,uniqueId){
         loader(messageDiv);
 
         //fecth data from server -> bot's response
-        const response = await fetch("https://ghost-chatgpt.onrender.com/",
+        const response = await fetch("http://localhost:4023",
         {
             method : "post",
             headers : {
