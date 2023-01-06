@@ -5,7 +5,7 @@ import * as dotenv from "dotenv"
 
 dotenv.config();
 const app = express();
-const PORT =  5000;
+const PORT =  process.env.ENV_PORT || 4000;
 
 //Init my app
 Initialization(app);

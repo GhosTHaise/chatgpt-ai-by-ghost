@@ -1,12 +1,19 @@
 
 import bot from "./assets/bot.svg"
 import user from "./assets/user.svg"
+import copy from "./assets/copy.svg"
 
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
 
 let loadInterval;
-
+const copy_to_clipboard = (text) => {
+    navigator.clipboard.writeText(text).then(()=>{
+        alert("copy")
+    }).catch((err)=> {
+        alert(err)
+    })
+}
 function loader(element){
     element.textContent = "";
     loadInterval = setInterval(()=>{
@@ -75,7 +82,7 @@ function chatStripe(isAi,value,uniqueId){
         loader(messageDiv);
 
         //fecth data from server -> bot's response
-        const response = await fetch("http://localhost:4023",
+        const response = await fetch("https://ghost-chatgpt.onrender.com",
         {
             method : "post",
             headers : {
@@ -92,7 +99,9 @@ function chatStripe(isAi,value,uniqueId){
         if(response.ok){
             const data = await response.json();
             const parsedData = data.bot.trim();
-
+            const copy_id = generateUniqueId();
+            messageDiv.innerHTML += `<div class="copy_container" ><img id="${copy_id}" class="copy_img" src=${copy} alt="copy" /></div>`
+            document.getElementById(`${copy_id}`).addEventListener("click",copy_to_clipboard);
             typeText(messageDiv,parsedData);
         }else{
             const err = await response.text();
