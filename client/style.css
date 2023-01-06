@@ -66,7 +66,6 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
-  padding-left: 25px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -97,7 +96,7 @@ body {
 
 .message {
   flex: 1;
-
+  padding-right: 75px;
   color: #dcdcdc;
   font-size: 20px;
   padding-top: 5px;

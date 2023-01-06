@@ -61,7 +61,32 @@ function chatStripe(isAi,value,uniqueId){
         </div>
     `);
 }
-
+/** 
+ * @param {string} id Id of the new Element 
+ * @param {string} text this represent to text add to the clipboard
+*/
+ const add_new_copy = (id,text,before_div) => {
+    const new_div = document.createElement("div")
+    //copy_container
+    new_div.id= id;
+    new_div.className = "copy_container";
+    //copy_img
+    const new_img = document.createElement("img");
+    new_img.src = copy;
+    new_img.title="copy"
+    new_img.className="copy_img"
+    //append those element
+    new_div.appendChild(new_img);
+    //eventListener
+    new_div.addEventListener("click",()=>{
+            navigator.clipboard.writeText(text).then(() => {
+                alert("copied")
+            }).catch((err) => {
+                console.log(err)
+            });
+        });
+    before_div.parentNode.insertBefore(new_div,before_div);    
+    }
  const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(form);
@@ -100,9 +125,9 @@ function chatStripe(isAi,value,uniqueId){
             const data = await response.json();
             const parsedData = data.bot.trim();
             const copy_id = generateUniqueId();
-            messageDiv.innerHTML += `<div class="copy_container" ><img id="${copy_id}" class="copy_img" src=${copy} alt="copy" /></div>`
-            document.getElementById(`${copy_id}`).addEventListener("click",copy_to_clipboard);
+
             typeText(messageDiv,parsedData);
+            add_new_copy(copy_id,parsedData,messageDiv);
         }else{
             const err = await response.text();
             messageDiv.innerHTML = "Something went wrong";
