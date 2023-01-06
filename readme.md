@@ -15,7 +15,7 @@ On <b>server</b> Folder
     npm run server
 ```
 Contact me , to provide you an api key to complete .env.example : 
-<a href="https://www.facebook.com/profile.php?id=100009485341149">Fitiavana Sambatra<a/>
+<a href="https://www.facebook.com/profile.php?id=100009485341149" target="_blank">Fitiavana Sambatra<a/>
 
 >Preview
 You can view the result on : <a href="https://chatgpt-ai-by-ghost.vercel.app/">GhosTChatGPT-AI<a/>
